@@ -84,7 +84,9 @@ export function MobileSidebar({ onOpenAllSettings, onOpenAllNotifications }: Mob
             ))}
           </div>
 
-          <p className="text-xs text-center text-muted-foreground mt-2">Keep learning daily to maintain your streak!</p>
+          <p className="text-xs text-center text-muted-foreground mt-2">
+            Keep learning daily to maintain your streak!
+          </p>
         </div>
 
         <div className="h-px bg-border" />

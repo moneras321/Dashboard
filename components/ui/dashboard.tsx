@@ -34,7 +34,6 @@ interface Course {
   progress: number
   category: string
   image?: string
-  [key: string]: any
 }
 
 interface Achievement {

@@ -5,9 +5,20 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Librory/tabs"
 import { Card, CardContent } from "@/components/ui/Librory/card"
 
+interface Achievement {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  icon: React.ElementType;
+  color: string;
+  details: string;
+  category: string;
+}
+
 interface AllAchievementsProps {
-  onClose: () => void
-  onViewDetail: (achievement: any) => void
+  onClose: () => void;
+  onViewDetail: (achievement: Achievement) => void;
 }
 
 export function AllAchievements({ onClose, onViewDetail }: AllAchievementsProps) {

@@ -4,11 +4,21 @@ import { X, Share2 } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/Librory/dialog"
 import { Button } from "@/components/ui/Librory/button"
 
+interface Achievement {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  icon: React.ElementType;
+  color: string;
+  details: string;
+}
+
 interface AchievementDetailProps {
-  achievement: any
-  onClose: () => void
-  onViewCertificate?: (title: string) => void
-  onShare: () => void
+  achievement: Achievement;
+  onClose: () => void;
+  onViewCertificate?: (title: string) => void;
+  onShare: () => void;
 }
 
 export function AchievementDetail({ achievement, onClose, onViewCertificate, onShare }: AchievementDetailProps) {

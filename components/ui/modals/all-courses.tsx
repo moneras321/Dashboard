@@ -1,12 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { X, Search } from "lucide-react"
+import { Search } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/Librory/dialog"
 import { Input } from "@/components/ui/Librory/input"
 import { Button } from "@/components/ui/Librory/button"
 import { Badge } from "@/components/ui/Librory/badge"
 import { Card, CardContent } from "@/components/ui/Librory/card"
+import Image from "next/image";
 
 interface AllCoursesProps {
   onClose: () => void
@@ -134,7 +135,7 @@ export function AllCourses({ onClose, onPlayVideo }: AllCoursesProps) {
     }
 
     setFilteredCourses(result)
-  }, [searchQuery])
+  }, [searchQuery, allCourses])
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
@@ -171,10 +172,12 @@ export function AllCourses({ onClose, onPlayVideo }: AllCoursesProps) {
               onClick={() => onPlayVideo(course.title)}
             >
               <div className="h-40 bg-muted relative">
-                <img
+                <Image
                   src={course.image || "/placeholder.svg"}
                   alt={course.title}
                   className="h-full w-full object-cover"
+                  width={300}
+                  height={200}
                 />
                 <Badge variant="secondary" className="absolute top-2 right-2">
                   {course.category}

@@ -57,8 +57,11 @@ export function HelpCenter() {
     {
       id: "faq-4",
       question: "How do I get a certificate?",
-      answer:
-        "Certificates are automatically issued upon completion of a course. To receive your certificate, you must complete all required lessons and pass any quizzes or assessments with a score of at least 70%. Once completed, you can access your certificate from the 'Achievements' section.",
+      answer: (
+        <p>
+          Certificates are automatically issued upon completion of a course. To receive your certificate, you must complete all required lessons and pass any quizzes or assessments with a score of at least 70%. Once completed, you can access your certificate from the &apos;Achievements&apos; section.
+        </p>
+      ),
     },
     {
       id: "faq-5",

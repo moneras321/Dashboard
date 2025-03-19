@@ -31,7 +31,7 @@ export function CourseDetail({ course, onClose, onPlayVideo }: CourseDetailProps
     { id: 6, title: "Error Handling", duration: "18:40", completed: false },
     { id: 7, title: "Advanced Techniques", duration: "22:15", completed: false },
     { id: 8, title: "Project: Building a Real Application", duration: "45:30", completed: false },
-    { id: 9, title: "Testing and Debugging", duration: '28  duration: "45:30', completed: false },
+    { id: 9, title: "Testing and Debugging", duration: '28  duration: "45:30"', completed: false },
     { id: 9, title: "Testing and Debugging", duration: "28:15", completed: false },
     { id: 10, title: "Course Conclusion and Next Steps", duration: "15:45", completed: false },
   ]

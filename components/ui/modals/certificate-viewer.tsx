@@ -3,6 +3,7 @@
 import { X, Download, Share2 } from "lucide-react"
 import { Dialog, DialogContent } from "@/components/ui/Librory/dialog"
 import { Button } from "@/components/ui/Librory/button"
+import Image from "next/image";
 
 interface CertificateViewerProps {
   title: string
@@ -37,7 +38,13 @@ export function CertificateViewer({ title, onClose, onShare }: CertificateViewer
                   </div>
                 </div>
                 <div className="mt-8 flex justify-center">
-                  <img src="/placeholder.svg?height=60&width=120" alt="Certificate Seal" className="h-16" />
+                  <Image
+                    src="/placeholder.svg?height=60&width=120"
+                    alt="Certificate Seal"
+                    className="h-16"
+                    width={120}
+                    height={60}
+                  />
                 </div>
               </div>
             </div>

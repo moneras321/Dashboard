@@ -3,6 +3,7 @@ import { Clock } from "lucide-react"
 import { Button } from "@/components/ui/Librory/button"
 import { Badge } from "@/components/ui/Librory/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Librory/tabs"
+import Image from "next/image";
 
 interface MyCoursesProps {
   onPlayVideo: (title: string) => void
@@ -98,10 +99,12 @@ export function MyCourses({ onPlayVideo, onOpenAllCourses, onViewCertificate }: 
               >
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-1/4 h-40 md:h-auto">
-                    <img
+                    <Image
                       src={course.image || "/placeholder.svg"}
                       alt={course.title}
                       className="w-full h-full object-cover"
+                      width={300}
+                      height={200}
                     />
                   </div>
                   <div className="p-4 flex-1 flex flex-col">
@@ -156,10 +159,12 @@ export function MyCourses({ onPlayVideo, onOpenAllCourses, onViewCertificate }: 
               >
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-1/4 h-40 md:h-auto">
-                    <img
+                    <Image
                       src={course.image || "/placeholder.svg"}
                       alt={course.title}
                       className="w-full h-full object-cover"
+                      width={300}
+                      height={200}
                     />
                   </div>
                   <div className="p-4 flex-1 flex flex-col">
@@ -224,10 +229,12 @@ export function MyCourses({ onPlayVideo, onOpenAllCourses, onViewCertificate }: 
               >
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-1/4 h-40 md:h-auto">
-                    <img
+                    <Image
                       src={course.image || "/placeholder.svg"}
                       alt={course.title}
                       className="w-full h-full object-cover"
+                      width={300}
+                      height={200}
                     />
                   </div>
                   <div className="p-4 flex-1 flex flex-col">

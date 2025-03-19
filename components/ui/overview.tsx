@@ -4,13 +4,30 @@ import { ArrowRight, CheckCircle, Clock, FileText, Zap } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/Librory/card"
 import { Button } from "@/components/ui/Librory/button"
 import { Badge } from "@/components/ui/Librory/badge"
+import Image from "next/image";
 
 interface OverviewProps {
-  onOpenAllCourses: () => void
-  onOpenAllAchievements: () => void
-  onOpenCourseDetail: (course: any) => void
-  onOpenAchievementDetail: (achievement: any) => void
-  onPlayVideo: (title: string) => void
+  onOpenAllCourses: () => void;
+  onOpenAllAchievements: () => void;
+  onOpenCourseDetail: (course: {
+    id: number;
+    title: string;
+    instructor: string;
+    progress: number;
+    category: string;
+    lastAccessed: string;
+    nextLesson: string;
+  }) => void;
+  onOpenAchievementDetail: (achievement: {
+    id: number;
+    title: string;
+    description: string;
+    date: string;
+    icon: React.ElementType;
+    color: string;
+    details: string;
+  }) => void;
+  onPlayVideo: (title: string) => void;
 }
 
 export function Overview({
@@ -143,7 +160,7 @@ export function Overview({
     <div className="p-6 max-w-5xl mx-auto">
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Welcome back, Alex!</h1>
-        <p className="text-muted-foreground">You're making great progress. Keep up the good work!</p>
+        <p className="text-muted-foreground">You&apos;re making great progress. Keep up the good work!</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -269,10 +286,12 @@ export function Overview({
               onClick={() => onPlayVideo(course.title)}
             >
               <div className="w-1/3 bg-muted">
-                <img
+                <Image
                   src={course.image || "/placeholder.svg"}
                   alt={course.title}
                   className="h-full w-full object-cover"
+                  width={300}
+                  height={200}
                 />
               </div>
               <CardContent className="p-4 w-2/3">

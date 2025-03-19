@@ -5,11 +5,20 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/Librory/button"
 import { Badge } from "@/components/ui/Librory/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Librory/tabs"
+import Image from "next/image";
 
 interface CourseDetailProps {
-  course: any
-  onClose: () => void
-  onPlayVideo: (title: string) => void
+  course: {
+    id: number;
+    title: string;
+    description: string;
+    instructor: string;
+    category: string;
+    progress: number;
+    rating: number;
+  };
+  onClose: () => void;
+  onPlayVideo: (title: string) => void;
 }
 
 export function CourseDetail({ course, onClose, onPlayVideo }: CourseDetailProps) {
@@ -41,10 +50,12 @@ export function CourseDetail({ course, onClose, onPlayVideo }: CourseDetailProps
 
         <div className="mt-4">
           <div className="h-48 bg-muted rounded-md relative mb-4">
-            <img
+            <Image
               src="/placeholder.svg?height=300&width=800"
               alt={course.title}
               className="h-full w-full object-cover rounded-md"
+              width={800}
+              height={300}
             />
             <Badge variant="secondary" className="absolute top-2 right-2">
               {course.category}

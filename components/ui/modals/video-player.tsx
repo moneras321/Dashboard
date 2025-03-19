@@ -14,7 +14,7 @@ export function VideoPlayer({ title, onClose }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(300) // 5 minutes in seconds
+  const [duration] = useState(300) // 5 minutes in seconds
 
   // Simulate video progress
   useEffect(() => {

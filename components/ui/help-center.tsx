@@ -40,19 +40,19 @@ export function HelpCenter() {
       id: "faq-1",
       question: "How do I reset my password?",
       answer:
-        "To reset your password, click on the 'Forgot Password' link on the login page. Enter your email address, and we'll send you instructions to reset your password. Follow the link in the email to create a new password.",
+        "To reset your password, click on the &apos;Forgot Password&apos; link on the login page. Enter your email address, and we&apos;ll send you instructions to reset your password. Follow the link in the email to create a new password.",
     },
     {
       id: "faq-2",
       question: "How do I download course materials?",
       answer:
-        "You can download course materials by navigating to the course page and clicking on the 'Resources' tab. From there, you'll see a list of downloadable materials. Click the download icon next to each item to save it to your device.",
+        "You can download course materials by navigating to the course page and clicking on the &apos;Resources&apos; tab. From there, you&apos;ll see a list of downloadable materials. Click the download icon next to each item to save it to your device.",
     },
     {
       id: "faq-3",
       question: "Can I access courses offline?",
       answer:
-        "Yes, with our Premium subscription, you can download courses for offline viewing. Go to the course page, click the download button, and the content will be available in the 'Downloads' section of your account even when you're offline.",
+        "Yes, with our Premium subscription, you can download courses for offline viewing. Go to the course page, click the download button, and the content will be available in the &apos;Downloads&apos; section of your account even when you&apos;re offline.",
     },
     {
       id: "faq-4",
@@ -67,7 +67,7 @@ export function HelpCenter() {
       id: "faq-5",
       question: "How do I cancel my subscription?",
       answer:
-        "To cancel your subscription, go to the 'Billing' section in your account settings. Click on 'Cancel Subscription' and follow the prompts. Your subscription will remain active until the end of the current billing period.",
+        "To cancel your subscription, go to the &apos;Billing&apos; section in your account settings. Click on &apos;Cancel Subscription&apos; and follow the prompts. Your subscription will remain active until the end of the current billing period.",
     },
   ]
 
@@ -212,7 +212,7 @@ export function HelpCenter() {
                       <Mail className="h-8 w-8 text-primary mb-4" />
                       <h3 className="font-semibold mb-2">Email Support</h3>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Send us an email and we'll get back to you within 24 hours.
+                        Send us an email and we&apos;ll get back to you within 24 hours.
                       </p>
                       <Button variant="outline">Send Email</Button>
                     </CardContent>

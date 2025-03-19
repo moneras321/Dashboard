@@ -139,7 +139,7 @@ export function CourseDetail({ course, onClose, onPlayVideo }: CourseDetailProps
               <div className="prose prose-sm max-w-none dark:prose-invert">
                 <h3>About This Course</h3>
                 <p>
-                  This comprehensive course will take you from the fundamentals to advanced concepts. Whether you&apos;re a beginner or looking to refresh your skills, this course provides a structured learning path with practical examples and hands-on projects.
+                  This comprehensive course will take you from the fundamentals to advanced concepts. Whether you;re a beginner or looking to refresh your skills, this course provides a structured learning path with practical examples and hands-on projects.
                 </p>
 
                 <h3 className="mt-4">What You'll Learn</h3>
@@ -203,7 +203,7 @@ export function CourseDetail({ course, onClose, onPlayVideo }: CourseDetailProps
                     <div className="text-yellow-500 text-sm">★★★★★</div>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Excellent course! The instructor explains complex concepts in a way that&apos;s easy to understand. I&apos;ve learned so much and feel confident applying these skills to my projects.
+                    Excellent course! The instructor explains complex concepts in a way thats easy to understand. I;ve learned so much and feel confident applying these skills to my projects.
                   </p>
                 </div>
 
@@ -224,7 +224,7 @@ export function CourseDetail({ course, onClose, onPlayVideo }: CourseDetailProps
                     <div className="text-yellow-500 text-sm">★★★★★</div>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    This course exceeded my expectations. The projects were challenging but doable, and I feel like I&apos;ve gained valuable skills that I can immediately apply at work.
+                    This course exceeded my expectations. The projects were challenging but doable, and I feel like I ve gained valuable skills that I can immediately apply at work.
                   </p>
                 </div>
               </div>

@@ -1,7 +1,9 @@
 "use client"
 
-import { useState } from "react"
-import { Menu } from "lucide-react"
+import type React from "react"
+
+import { useState, useEffect } from "react"
+import { Menu, Bell, Moon, Play } from "lucide-react"
 import { LeftSidebar } from "./left-sidebar"
 import { RightSidebar } from "./right-sidebar"
 import { Overview } from "./overview"
@@ -14,6 +16,7 @@ import { Billing } from "./billing"
 import { HelpCenter } from "./help-center"
 import { Messages } from "./messages"
 import { Button } from "@/components/ui/Librory/button"
+import { Switch } from "@/components/ui/Librory/switch"
 import { AllSettings } from "./modals/all-settings"
 import { AllNotifications } from "./modals/all-notifications"
 import { AllCourses } from "./modals/all-courses"
@@ -24,18 +27,58 @@ import { VideoPlayer } from "./modals/video-player"
 import { CertificateViewer } from "./modals/certificate-viewer"
 import { useTheme } from "next-themes"
 
+interface Course {
+  id: number
+  title: string
+  instructor: string
+  progress: number
+  category: string
+  image?: string
+  [key: string]: any
+}
+
+interface Achievement {
+  id: number
+  title: string
+  description: string
+  date?: string
+  icon: React.ElementType
+  color: string
+  details?: string
+  category?: string
+}
+
 export function Dashboard() {
   const [currentView, setCurrentView] = useState("overview")
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  // Force dark mode to apply on initial load and when theme changes
+  useEffect(() => {
+    // Check if we're in the browser
+    if (typeof window !== "undefined") {
+      // Check current theme
+      const currentTheme = theme || localStorage.getItem("theme") || "light"
+      const isDark = currentTheme === "dark"
+      setIsDarkMode(isDark)
+
+      // Apply dark class directly to document
+      if (isDark) {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+      }
+    }
+  }, [theme])
 
   // Modal states
   const [showAllSettings, setShowAllSettings] = useState(false)
   const [showAllNotifications, setShowAllNotifications] = useState(false)
   const [showAllCourses, setShowAllCourses] = useState(false)
   const [showAllAchievements, setShowAllAchievements] = useState(false)
-  const [selectedCourse, setSelectedCourse] = useState<any>(null)
-  const [selectedAchievement, setSelectedAchievement] = useState<any>(null)
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null)
+  const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null)
   const [showVideoPlayer, setShowVideoPlayer] = useState(false)
   const [videoTitle, setVideoTitle] = useState("")
   const [showCertificate, setShowCertificate] = useState(false)
@@ -66,11 +109,20 @@ export function Dashboard() {
 
   // Toggle dark mode
   const toggleDarkMode = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
+    const newDarkMode = !isDarkMode
+    setIsDarkMode(newDarkMode)
+    setTheme(newDarkMode ? "dark" : "light")
+
+    // Apply dark class directly to document
+    if (newDarkMode) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
   }
 
   // Add course to My Courses
-  const addCourseToMyCourses = (course: any) => {
+  const addCourseToMyCourses = (course: Course) => {
     // In a real app, this would add the course to the user's courses
     alert(`Course "${course.title}" has been added to your courses!`)
   }
@@ -129,7 +181,7 @@ export function Dashboard() {
           <Settings
             emailNotifications={emailNotifications}
             setEmailNotifications={setEmailNotifications}
-            darkMode={theme === "dark"}
+            darkMode={isDarkMode}
             toggleDarkMode={toggleDarkMode}
             autoplayVideos={autoplayVideos}
             setAutoplayVideos={setAutoplayVideos}
@@ -146,7 +198,7 @@ export function Dashboard() {
         onOpenAllNotifications={() => setShowAllNotifications(true)}
         emailNotifications={emailNotifications}
         setEmailNotifications={setEmailNotifications}
-        darkMode={theme === "dark"}
+        darkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
         autoplayVideos={autoplayVideos}
         setAutoplayVideos={setAutoplayVideos}
@@ -196,7 +248,7 @@ export function Dashboard() {
 
           <div className="space-y-4">
             <h3 className="font-semibold">Learning Streak</h3>
-            <p className="text-sm text-muted-foreground">You're on a 7-day streak!</p>
+            <p className="text-sm text-muted-foreground">You&apos;re on a 7-day streak!</p>
 
             <div className="flex justify-between">
               {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, i) => (
@@ -223,44 +275,26 @@ export function Dashboard() {
 
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
+                <Bell className="h-4 w-4" />
                 <span className="text-sm">Email Notifications</span>
               </div>
-              <button
-                onClick={() => setEmailNotifications(!emailNotifications)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${emailNotifications ? "bg-primary" : "bg-input"}`}
-              >
-                <span
-                  className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${emailNotifications ? "translate-x-5" : "translate-x-0"}`}
-                ></span>
-              </button>
+              <Switch checked={emailNotifications} onCheckedChange={setEmailNotifications} />
             </div>
 
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
+                <Moon className="h-4 w-4" />
                 <span className="text-sm">Dark Mode</span>
               </div>
-              <button
-                onClick={toggleDarkMode}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${theme === "dark" ? "bg-primary" : "bg-input"}`}
-              >
-                <span
-                  className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${theme === "dark" ? "translate-x-5" : "translate-x-0"}`}
-                ></span>
-              </button>
+              <Switch checked={isDarkMode} onCheckedChange={toggleDarkMode} />
             </div>
 
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
+                <Play className="h-4 w-4" />
                 <span className="text-sm">Autoplay Videos</span>
               </div>
-              <button
-                onClick={() => setAutoplayVideos(!autoplayVideos)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${autoplayVideos ? "bg-primary" : "bg-input"}`}
-              >
-                <span
-                  className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${autoplayVideos ? "translate-x-5" : "translate-x-0"}`}
-                ></span>
-              </button>
+              <Switch checked={autoplayVideos} onCheckedChange={setAutoplayVideos} />
             </div>
 
             <Button variant="ghost" className="w-full" size="sm" onClick={() => setShowAllSettings(true)}>
@@ -271,7 +305,13 @@ export function Dashboard() {
       </div>
 
       {/* Modals */}
-      {showAllSettings && <AllSettings onClose={() => setShowAllSettings(false)} />}
+      {showAllSettings && (
+        <AllSettings
+          onClose={() => setShowAllSettings(false)}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+        />
+      )}
       {showAllNotifications && <AllNotifications onClose={() => setShowAllNotifications(false)} />}
       {showAllCourses && <AllCourses onClose={() => setShowAllCourses(false)} onPlayVideo={openVideoPlayer} />}
       {showAllAchievements && (

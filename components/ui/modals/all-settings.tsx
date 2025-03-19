@@ -5,13 +5,28 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Switch } from "@/components/ui/Librory/switch"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Librory/tabs"
 import { useTheme } from "next-themes"
+import { useState, useEffect } from "react"
 
 interface AllSettingsProps {
   onClose: () => void
+  isDarkMode: boolean
+  toggleDarkMode: () => void
 }
 
-export function AllSettings({ onClose }: AllSettingsProps) {
+export function AllSettings({ onClose, isDarkMode, toggleDarkMode }: AllSettingsProps) {
   const { theme, setTheme } = useTheme()
+  const [isSystemTheme, setIsSystemTheme] = useState(false)
+
+  // Initialize system theme state based on current theme
+  useEffect(() => {
+    setIsSystemTheme(theme === "system")
+  }, [theme])
+
+  // Toggle system theme
+  const toggleSystemTheme = (checked: boolean) => {
+    setIsSystemTheme(checked)
+    setTheme(checked ? "system" : isDarkMode ? "dark" : "light")
+  }
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
@@ -177,10 +192,7 @@ export function AllSettings({ onClose }: AllSettingsProps) {
                   <Moon className="h-4 w-4" />
                   <span className="text-sm">Dark Mode</span>
                 </div>
-                <Switch
-                  checked={theme === "dark"}
-                  onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-                />
+                <Switch checked={isDarkMode} onCheckedChange={() => toggleDarkMode()} />
               </div>
 
               <div className="flex items-center justify-between">
@@ -188,10 +200,7 @@ export function AllSettings({ onClose }: AllSettingsProps) {
                   <Laptop className="h-4 w-4" />
                   <span className="text-sm">Use System Theme</span>
                 </div>
-                <Switch
-                  checked={theme === "system"}
-                  onCheckedChange={(checked) => setTheme(checked ? "system" : "light")}
-                />
+                <Switch checked={isSystemTheme} onCheckedChange={toggleSystemTheme} />
               </div>
             </div>
 

@@ -72,4 +72,3 @@ export function CertificateViewer({ title, onClose, onShare }: CertificateViewer
     </Dialog>
   )
 }
-

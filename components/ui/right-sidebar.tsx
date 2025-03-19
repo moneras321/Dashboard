@@ -2,6 +2,7 @@
 
 import { Bell, Moon, Play } from "lucide-react"
 import { Button } from "@/components/ui/Librory/button"
+import { Switch } from "@/components/ui/Librory/switch"
 
 interface RightSidebarProps {
   onOpenAllSettings: () => void
@@ -71,7 +72,7 @@ export function RightSidebar({
 
           <div className="space-y-4">
             <h3 className="font-semibold">Learning Streak</h3>
-            <p className="text-sm text-muted-foreground">You're on a 7-day streak!</p>
+            <p className="text-sm text-muted-foreground">You&apos;re on a 7-day streak!</p>
 
             <div className="flex justify-between">
               {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, i) => (
@@ -101,14 +102,7 @@ export function RightSidebar({
                 <Bell className="h-4 w-4" />
                 <span className="text-sm">Email Notifications</span>
               </div>
-              <button
-                onClick={() => setEmailNotifications(!emailNotifications)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${emailNotifications ? "bg-primary" : "bg-input"}`}
-              >
-                <span
-                  className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${emailNotifications ? "translate-x-5" : "translate-x-0"}`}
-                ></span>
-              </button>
+              <Switch checked={emailNotifications} onCheckedChange={setEmailNotifications} />
             </div>
 
             <div className="flex items-center justify-between">
@@ -116,14 +110,7 @@ export function RightSidebar({
                 <Moon className="h-4 w-4" />
                 <span className="text-sm">Dark Mode</span>
               </div>
-              <button
-                onClick={toggleDarkMode}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${darkMode ? "bg-primary" : "bg-input"}`}
-              >
-                <span
-                  className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${darkMode ? "translate-x-5" : "translate-x-0"}`}
-                ></span>
-              </button>
+              <Switch checked={darkMode} onCheckedChange={toggleDarkMode} />
             </div>
 
             <div className="flex items-center justify-between">
@@ -131,14 +118,7 @@ export function RightSidebar({
                 <Play className="h-4 w-4" />
                 <span className="text-sm">Autoplay Videos</span>
               </div>
-              <button
-                onClick={() => setAutoplayVideos(!autoplayVideos)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${autoplayVideos ? "bg-primary" : "bg-input"}`}
-              >
-                <span
-                  className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${autoplayVideos ? "translate-x-5" : "translate-x-0"}`}
-                ></span>
-              </button>
+              <Switch checked={autoplayVideos} onCheckedChange={setAutoplayVideos} />
             </div>
 
             <Button variant="ghost" className="w-full" size="sm" onClick={onOpenAllSettings}>

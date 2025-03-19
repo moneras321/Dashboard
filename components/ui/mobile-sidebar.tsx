@@ -124,4 +124,3 @@ export function MobileSidebar({ onOpenAllSettings, onOpenAllNotifications }: Mob
     </div>
   )
 }
-

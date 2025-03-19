@@ -192,4 +192,3 @@ export function Achievements({ onViewAchievementDetail, onViewCertificate, onSha
     </div>
   )
 }
-

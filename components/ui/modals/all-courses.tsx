@@ -231,4 +231,3 @@ export function AllCourses({ onClose, onPlayVideo }: AllCoursesProps) {
     </Dialog>
   )
 }
-

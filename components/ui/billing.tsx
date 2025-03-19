@@ -299,4 +299,3 @@ export function Billing({ onPurchaseCourse }: BillingProps) {
     </div>
   )
 }
-

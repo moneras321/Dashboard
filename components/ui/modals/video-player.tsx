@@ -116,4 +116,3 @@ export function VideoPlayer({ title, onClose }: VideoPlayerProps) {
     </Dialog>
   )
 }
-

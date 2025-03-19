@@ -280,4 +280,3 @@ export function MyCourses({ onPlayVideo, onOpenAllCourses, onViewCertificate }: 
     </div>
   )
 }
-

@@ -166,4 +166,3 @@ export function AllNotifications({ onClose }: AllNotificationsProps) {
     </Dialog>
   )
 }
-

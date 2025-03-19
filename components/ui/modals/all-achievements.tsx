@@ -170,4 +170,3 @@ export function AllAchievements({ onClose, onViewDetail }: AllAchievementsProps)
     </Dialog>
   )
 }
-

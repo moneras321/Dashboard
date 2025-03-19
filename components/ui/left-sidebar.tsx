@@ -148,4 +148,3 @@ export function LeftSidebar({ currentView, setCurrentView, isOpen, setIsOpen }: 
     </div>
   )
 }
-

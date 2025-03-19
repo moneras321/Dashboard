@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Libror
 import { Label } from "@/components/ui/Librory/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/Librory/select"
 import { Button } from "@/components/ui/Librory/button"
+import { Switch } from "@/components/ui/Librory/switch"
 
 interface SettingsProps {
   emailNotifications: boolean
@@ -51,14 +52,7 @@ export function Settings({
                     <Play className="h-4 w-4" />
                     <span className="text-sm">Autoplay Videos</span>
                   </div>
-                  <button
-                    onClick={() => setAutoplayVideos(!autoplayVideos)}
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${autoplayVideos ? "bg-primary" : "bg-input"}`}
-                  >
-                    <span
-                      className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${autoplayVideos ? "translate-x-5" : "translate-x-0"}`}
-                    ></span>
-                  </button>
+                  <Switch checked={autoplayVideos} onCheckedChange={setAutoplayVideos} />
                 </div>
 
                 <div className="flex items-center justify-between">
@@ -66,13 +60,7 @@ export function Settings({
                     <Volume2 className="h-4 w-4" />
                     <span className="text-sm">Mute Video Sound</span>
                   </div>
-                  <button
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-input`}
-                  >
-                    <span
-                      className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-0`}
-                    ></span>
-                  </button>
+                  <Switch />
                 </div>
 
                 <div className="flex items-center justify-between">
@@ -80,13 +68,7 @@ export function Settings({
                     <Clock className="h-4 w-4" />
                     <span className="text-sm">Show Estimated Time</span>
                   </div>
-                  <button
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                  >
-                    <span
-                      className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                    ></span>
-                  </button>
+                  <Switch defaultChecked />
                 </div>
               </CardContent>
             </Card>
@@ -140,13 +122,7 @@ export function Settings({
                   <div className="flex items-center gap-2">
                     <span className="text-sm">Screen Reader Support</span>
                   </div>
-                  <button
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                  >
-                    <span
-                      className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                    ></span>
-                  </button>
+                  <Switch defaultChecked />
                 </div>
 
                 <div className="space-y-2">
@@ -173,14 +149,7 @@ export function Settings({
                   <Bell className="h-4 w-4" />
                   <span className="text-sm">Email Notifications</span>
                 </div>
-                <button
-                  onClick={() => setEmailNotifications(!emailNotifications)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${emailNotifications ? "bg-primary" : "bg-input"}`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${emailNotifications ? "translate-x-5" : "translate-x-0"}`}
-                  ></span>
-                </button>
+                <Switch checked={emailNotifications} onCheckedChange={setEmailNotifications} />
               </div>
 
               <div className="flex items-center justify-between">
@@ -188,13 +157,7 @@ export function Settings({
                   <Bell className="h-4 w-4" />
                   <span className="text-sm">Course Updates</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked />
               </div>
 
               <div className="flex items-center justify-between">
@@ -202,13 +165,7 @@ export function Settings({
                   <Bell className="h-4 w-4" />
                   <span className="text-sm">New Achievements</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked />
               </div>
 
               <div className="flex items-center justify-between">
@@ -216,13 +173,7 @@ export function Settings({
                   <Bell className="h-4 w-4" />
                   <span className="text-sm">Promotions and Offers</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-input`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-0`}
-                  ></span>
-                </button>
+                <Switch />
               </div>
             </CardContent>
           </Card>
@@ -237,13 +188,7 @@ export function Settings({
                   <Bell className="h-4 w-4" />
                   <span className="text-sm">Push Notifications</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked />
               </div>
 
               <div className="flex items-center justify-between">
@@ -251,13 +196,7 @@ export function Settings({
                   <Bell className="h-4 w-4" />
                   <span className="text-sm">Learning Reminders</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked />
               </div>
             </CardContent>
           </Card>
@@ -274,13 +213,7 @@ export function Settings({
                   <Eye className="h-4 w-4" />
                   <span className="text-sm">Show Profile to Others</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked />
               </div>
 
               <div className="flex items-center justify-between">
@@ -288,13 +221,7 @@ export function Settings({
                   <Lock className="h-4 w-4" />
                   <span className="text-sm">Two-Factor Authentication</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-input`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-0`}
-                  ></span>
-                </button>
+                <Switch />
               </div>
 
               <div className="flex items-center justify-between">
@@ -302,13 +229,7 @@ export function Settings({
                   <Eye className="h-4 w-4" />
                   <span className="text-sm">Share Learning Activity</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked />
               </div>
             </CardContent>
           </Card>
@@ -326,40 +247,21 @@ export function Settings({
                 <div className="flex items-center gap-2">
                   <span className="text-sm">Essential Cookies</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                  disabled
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked disabled />
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="text-sm">Analytics Cookies</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-5`}
-                  ></span>
-                </button>
+                <Switch defaultChecked />
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="text-sm">Marketing Cookies</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-input`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-0`}
-                  ></span>
-                </button>
+                <Switch />
               </div>
 
               <Button variant="outline" className="mt-2">
@@ -380,14 +282,7 @@ export function Settings({
                   <Moon className="h-4 w-4" />
                   <span className="text-sm">Dark Mode</span>
                 </div>
-                <button
-                  onClick={toggleDarkMode}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${darkMode ? "bg-primary" : "bg-input"}`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform ${darkMode ? "translate-x-5" : "translate-x-0"}`}
-                  ></span>
-                </button>
+                <Switch checked={darkMode} onCheckedChange={toggleDarkMode} />
               </div>
 
               <div className="flex items-center justify-between">
@@ -395,13 +290,7 @@ export function Settings({
                   <Laptop className="h-4 w-4" />
                   <span className="text-sm">Use System Theme</span>
                 </div>
-                <button
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-input`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 rounded-full bg-background transition-transform translate-x-0`}
-                  ></span>
-                </button>
+                <Switch />
               </div>
             </CardContent>
           </Card>

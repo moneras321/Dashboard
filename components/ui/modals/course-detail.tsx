@@ -228,4 +228,3 @@ export function CourseDetail({ course, onClose, onPlayVideo }: CourseDetailProps
     </Dialog>
   )
 }
-

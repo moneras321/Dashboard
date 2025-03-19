@@ -53,4 +53,3 @@ export function AchievementDetail({ achievement, onClose, onViewCertificate, onS
     </Dialog>
   )
 }
-

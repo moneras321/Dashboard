@@ -5,15 +5,34 @@ import { Card, CardContent } from "@/components/ui/Librory/card"
 import { Button } from "@/components/ui/Librory/button"
 import { Badge } from "@/components/ui/Librory/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Librory/tabs"
+import Image from "next/image";
+
+interface Achievement {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  icon: React.ElementType;
+  color: string;
+  details: string;
+  category: string;
+}
+
+interface Certificate {
+  id: number;
+  title: string;
+  issueDate: string;
+  image: string;
+}
 
 interface AchievementsProps {
-  onViewAchievementDetail: (achievement: any) => void
-  onViewCertificate: (title: string) => void
-  onShare: (title: string) => void
+  onViewAchievementDetail: (achievement: Achievement) => void;
+  onViewCertificate: (title: string) => void;
+  onShare: (title: string) => void;
 }
 
 export function Achievements({ onViewAchievementDetail, onViewCertificate, onShare }: AchievementsProps) {
-  const certificates = [
+  const certificates: Certificate[] = [
     {
       id: 1,
       title: "Web Development Fundamentals",
@@ -28,7 +47,7 @@ export function Achievements({ onViewAchievementDetail, onViewCertificate, onSha
     },
   ]
 
-  const achievements = [
+  const achievements: Achievement[] = [
     {
       id: 1,
       title: "Fast Learner",
@@ -92,10 +111,12 @@ export function Achievements({ onViewAchievementDetail, onViewCertificate, onSha
             {certificates.map((certificate) => (
               <Card key={certificate.id} className="overflow-hidden border">
                 <div className="h-48 bg-gradient-to-b from-gray-200 to-gray-300 relative">
-                  <img
+                  <Image
                     src={certificate.image || "/placeholder.svg"}
                     alt={certificate.title}
                     className="h-full w-full object-cover"
+                    width={400}
+                    height={200}
                   />
                 </div>
                 <CardContent className="p-4">

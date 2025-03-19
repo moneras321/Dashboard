@@ -69,7 +69,9 @@ export function MobileSidebar({ onOpenAllSettings, onOpenAllNotifications }: Mob
 
         <div className="space-y-4">
           <h3 className="font-semibold">Learning Streak</h3>
-          <p className="text-sm text-muted-foreground">You're on a 7-day streak!</p>
+          <p className="text-sm text-muted-foreground">
+            You&apos;re on a 7-day streak!
+          </p>
 
           <div className="flex justify-between">
             {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, i) => (

@@ -5,9 +5,22 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Button } from "@/components/ui/Librory/button"
 import { Badge } from "@/components/ui/Librory/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Librory/tabs"
+import Image from "next/image";
+
+interface Course {
+  id: number;
+  title: string;
+  instructor: string;
+  price: string;
+  rating: number;
+  reviews: number;
+  category: string;
+  image: string;
+  description: string;
+}
 
 interface BillingProps {
-  onPurchaseCourse: (course: any) => void
+  onPurchaseCourse: (course: Course) => void;
 }
 
 export function Billing({ onPurchaseCourse }: BillingProps) {
@@ -262,10 +275,12 @@ export function Billing({ onPurchaseCourse }: BillingProps) {
             {availableCourses.map((course) => (
               <Card key={course.id} className="overflow-hidden">
                 <div className="h-40 bg-muted">
-                  <img
+                  <Image
                     src={course.image || "/placeholder.svg"}
                     alt={course.title}
                     className="h-full w-full object-cover"
+                    width={300}
+                    height={200}
                   />
                 </div>
                 <CardContent className="p-4">
